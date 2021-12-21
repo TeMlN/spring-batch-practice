@@ -24,39 +24,17 @@ public class ExampleJobConfig {
     public Job ExampleJob() {
 
         Job exampleJob = jobBuilderFactory.get("exampleJob")
-                .start(startStep())
-                .next(nextStep())
-                .next(lastStep())
+                .start(Step())
                 .build();
 
         return exampleJob;
     }
 
     @Bean
-    public Step startStep() {
-        return stepBuilderFactory.get("startStep")
+    public Step Step() {
+        return stepBuilderFactory.get("step")
                 .tasklet((contribution, chunkContext) -> {
-                    log.info("Start Step!");
-                    return RepeatStatus.FINISHED;
-                })
-                .build();
-    }
-
-    @Bean
-    public Step nextStep() {
-        return stepBuilderFactory.get("nextStep")
-                .tasklet((contribution, chunkContext) -> {
-                    log.info("Next Step!!");
-                    return RepeatStatus.FINISHED;
-                })
-                .build();
-    }
-
-    @Bean
-    public Step lastStep() {
-        return stepBuilderFactory.get("lastStep")
-                .tasklet((contribution, chunkContext) -> {
-                    log.info("Last Step!!");
+                    log.info("Step!!");
                     return RepeatStatus.FINISHED;
                 })
                 .build();
