@@ -14,13 +14,24 @@ repositories {
 
 dependencies {
 
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
-	compileOnly 'org.projectlombok:lombok'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-batch', version: '2.3.9.RELEASE'
+	implementation group: 'org.springframework.integration', name: 'spring-integration-http', version: '5.2.11.RELEASE'
+	implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.5.6'
+
+	//JDBC
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	//mybatis
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0'
+	//jpa
+	implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.4.11'
+
 	runtimeOnly 'com.h2database:h2'
-	annotationProcessor 'org.projectlombok:lombok'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation group: 'org.springframework.batch', name: 'spring-batch-test', version: '4.2.2.RELEASE'
+
 }
 
 test {
