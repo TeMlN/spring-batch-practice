@@ -1,4 +1,18 @@
 spring:
-  batch:
-    job:
-      enabled: false
+  profiles:
+    active: h2
+  datasource:
+    url: jdbc:h2:mem:batch
+    username: sa
+    driver-class-name: org.h2.Driver
+
+---
+
+spring:
+  profiles:
+    active: mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_batch
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.cj.jdbc.Driver
