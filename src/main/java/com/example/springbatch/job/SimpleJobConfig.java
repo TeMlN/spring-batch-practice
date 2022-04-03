@@ -25,7 +25,7 @@ public class SimpleJobConfig {
         return jobBuilderFactory.get("simpleJob") //simpleJob이란 이름의 Batch job을 생성합니다.
                 //job은 이렇게 별도로 이름을 생성하지 않고 builder에서 할당합니다
                 .start(simpleStep1(null))
-                .start(simpleStep2(null))
+                .next(simpleStep2(null))
                 .build();
     }
 
