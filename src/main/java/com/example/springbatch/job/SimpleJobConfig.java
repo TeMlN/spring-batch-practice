@@ -56,4 +56,7 @@ public class SimpleJobConfig {
                 })
                 .build();
     }
+
+    //코드들을 보시면 Job에는 코드들이 많이 없고 Step에 코드들이 많은게 보여지시나요?
+    //이렇게 Batch의 비즈니스 로직은 Step에서 처리합니다.
 }
