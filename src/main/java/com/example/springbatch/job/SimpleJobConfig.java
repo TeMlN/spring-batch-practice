@@ -25,6 +25,7 @@ public class SimpleJobConfig {
         return jobBuilderFactory.get("simpleJob") //simpleJob이란 이름의 Batch job을 생성합니다.
                 //job은 이렇게 별도로 이름을 생성하지 않고 builder에서 할당합니다
                 .start(simpleStep1(null))
+                .start(simpleStep2(null))
                 .build();
     }
 
@@ -36,10 +37,10 @@ public class SimpleJobConfig {
         return stepBuilderFactory.get("simpleStep1")//simpleStep1이란 이름의 Batch job을 생성합니다.
                 //job은 이렇게 별도로 이름을 생성하지 않고 builder에서 할당합니다
                 .tasklet((contribution, chunkContext) -> { //.tasklet: Step안에서 수행될 기능들을 명시, Step안에서 단일로 수행될 커스텀한 기능들을 선언할때 사용합니다.
-//                    log.info(">>>>> This is Step1"); //해당 Batch가 수행되면 log가 터집니다
-//                    log.info(">>>>> requestDate = {}", requestDate);
-//                    return RepeatStatus.FINISHED;
-                    throw new IllegalArgumentException("step1에서 실패합니다.");
+                    log.info(">>>>> This is Step1"); //해당 Batch가 수행되면 log가 터집니다
+                    log.info(">>>>> requestDate = {}", requestDate);
+                    return RepeatStatus.FINISHED;
+//                    throw new IllegalArgumentException("step1에서 실패합니다.");
                 })
                 .build();
     }
