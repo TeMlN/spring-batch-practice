@@ -28,3 +28,5 @@ spring:
       # NONE이 할당될 시 어떤 batch도 실행되지 않음.
 
       # job.name 할당 하는법: Run -> Edit Configuration, Program arguments에 --job.name="job.name명" 선언하여 할당하면 된다
+
+      # 실제 운영환경 에서는 java -jar *.jar --job.name=simpleJob 과 같이 배치를 실행합니다 (*.jar는 해당 application의 jar파일을 뜻함)
