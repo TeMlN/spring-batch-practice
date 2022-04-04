@@ -22,7 +22,7 @@ spring:
 spring:
   batch:
     job:
-      names: ${job.name.NONE}
+      names: ${job.name:NONE}
       # batch가 실행될때 Program arguments로 job.name 값이 넘어오면 해당 값과 일치하는 Job만 실행시키겠다는 설정
       # 만약 job.name이 할당되지 않았다면 NONE을 할당
       # NONE이 할당될 시 어떤 batch도 실행되지 않음.
