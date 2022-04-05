@@ -67,7 +67,8 @@ public class StepNextOptionsConfiguration {
                 .tasklet((contribution, chunkContext) -> {
                     log.info(">>>>> This is conditionalStep1");
 
-                    contribution.setExitStatus(ExitStatus.FAILED); //실패한 Batch 예제를 위한 ExitStatus.FAILED
+//                    contribution.setExitStatus(ExitStatus.FAILED); //실패한 Batch 예제를 위한 ExitStatus.FAILED
+                    contribution.setExitStatus(ExitStatus.EXECUTING); // 성공한 Batch 예제를 위한 코드 굳이 선언하지 않아도 됨 (성공한 Batch의 Default이기 때문)
                     return RepeatStatus.FINISHED;
                 })
                 .build();
