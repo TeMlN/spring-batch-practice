@@ -58,7 +58,11 @@ public class StepNextOptionsConfiguration {
 
          on이 캐치하는 상태값은 ExitStatus이지 BatchStatus가 아니다 절대 혼동하면 안된다 (성공한 Batch의 ExitStatus는 EXECUTING이다)
 
-         **/
+         BatchStatus vs ExitStatus
+
+         BatchStatus는 Job 또는 Step 의 실행 결과를 Spring에서 기록할 때 사용하는 Enum
+         ExitStatus는 Step 실행후 상태를 나타냄 ExitStatus는 Enum이 아니고 String형태임 또한 개발자가 직접 ExitStatus를 커스터마이징 해서 반환시킬 수도있음 (별도의 로직 필요)
+       **/
     }
 
     @Bean
